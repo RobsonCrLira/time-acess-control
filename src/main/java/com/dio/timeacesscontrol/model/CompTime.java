@@ -1,6 +1,7 @@
 package com.dio.timeacesscontrol.model;
 
 import lombok.*;
+import org.hibernate.envers.Audited;
 
 import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
@@ -10,15 +11,18 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Value
+@Data
 @Builder
 @Entity
+@Audited
+@AllArgsConstructor
+@NoArgsConstructor
 public class CompTime {
     @AllArgsConstructor
     @NoArgsConstructor
     @EqualsAndHashCode
     @Embeddable
-    public class CompTimeId implements Serializable{
+    public static class CompTimeId implements Serializable{
         private long idCompTime;
         private long idMovement;
         private long idUser;

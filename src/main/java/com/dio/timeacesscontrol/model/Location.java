@@ -1,16 +1,18 @@
 package com.dio.timeacesscontrol.model;
 
-import lombok.Builder;
-import lombok.Value;
+import lombok.*;
+import org.hibernate.envers.Audited;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
-@Value
+@Data
 @Builder
 @Entity
+@Audited
+@AllArgsConstructor
+@NoArgsConstructor
 public class Location {
+    @GeneratedValue( strategy =  GenerationType.AUTO)
     @Id
     private long id;
     @ManyToOne

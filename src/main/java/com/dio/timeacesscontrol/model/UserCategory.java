@@ -1,15 +1,20 @@
 package com.dio.timeacesscontrol.model;
 
-import lombok.Builder;
-import lombok.Value;
+import lombok.*;
+import org.hibernate.envers.Audited;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Value
+@Data
 @Builder
 @Entity
+@Audited
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserCategory {
+    @GeneratedValue
     @Id
     private long id;
     private String description;

@@ -1,22 +1,30 @@
 package com.dio.timeacesscontrol.model;
 
 import lombok.*;
+import org.hibernate.envers.Audited;
 
-import javax.persistence.*;
+import javax.persistence.Embeddable;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Value
+@Data
 @Builder
 @Entity
+@Audited
+@AllArgsConstructor
+@NoArgsConstructor
 public class Movement {
 
     @AllArgsConstructor
     @NoArgsConstructor
     @EqualsAndHashCode
     @Embeddable
-    public  class MovementId implements Serializable {
+    public static class MovementId implements Serializable {
         private long id;
         private long idUser;
 //        private String idUser;

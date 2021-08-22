@@ -1,18 +1,24 @@
 package com.dio.timeacesscontrol.model;
 
-import lombok.Builder;
-import lombok.Value;
+import lombok.*;
+import org.hibernate.envers.Audited;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Value
+@Data
 @Builder
 @Entity
+@Audited
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
-//    @GeneratedValue( strategy =  GenerationType.AUTO)
 //    private UUID id;
+    @GeneratedValue
     @Id
     private long id;
     @ManyToOne
